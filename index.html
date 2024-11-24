@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonebook</title>
+</head>
+<body>
+    <script>
+        const phonebook = {
+            Prerna: 1234567890,
+            Aastha: 1234567890,
+            Khushi: 1234567890,
+            Namrata: 1234567890,
+        }
+        
+        const name = prompt(`Enter the name to search in phonebook:`)
+        const phoneNumber = phonebook[name]
+        if(phoneNumber){
+            console.log(`The phone number of ${name} is ${phonebook[name]}`)
+        }
+        else{
+           console.log(`The phone number of ${name} is not found`) 
+        }
+        
+    </script>
+</body>
+</html>
