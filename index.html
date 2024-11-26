@@ -3,26 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phonebook</title>
+    <title>Contact book</title>
+    <style>
+        .container{
+            margin: 50px auto;
+            width: fit-content;
+            position: relative;
+        }
+        .input{
+            height: 25px;
+            width: 200px;
+            color: black;
+            border-radius: 20px;
+            margin: 20px;
+        }
+
+    .btn{
+            height: 30px;
+            width: 100px;
+            
+            border-radius: 20px;
+            background-color: #d9d9d9;
+            color: black;
+            cursor: pointer;
+
+        }
+    </style>
 </head>
 <body>
+
+<div class="container">
+    <h1>Contact Book</h1>
+
+
+    <input class="input" type="text" id="search" placeholder="Search..."/>
+    <button class="btn" type="button" onclick="search()">Search</button>
+    <p id="result"></p>
+</div>
+
+   
     <script>
-        const phonebook = {
-            Prerna: 1234567890,
-            Aastha: 1234567890,
-            Khushi: 1234567890,
-            Namrata: 1234567890,
+        const contacts = {
+            prerna: "1234567890",
+            aastha: "1234567890",
+            khushi: "1234567890",
+            namrata: "1234567890",
         }
+
+        function search(){
+            const searchInput = document.getElementById("search");
+            const query = searchInput.value.toLowerCase();
+
+            const mobile = contacts[query]
+       
+            const result = document.getElementById("result");
         
-        const name = prompt(`Enter the name to search in phonebook:`)
-        const phoneNumber = phonebook[name]
-        if(phoneNumber){
-            console.log(`The phone number of ${name} is ${phonebook[name]}`)
+        if(mobile){
+           result.innerText = `Mobile number of ${query} is ${mobile}`;
         }
         else{
-           console.log(`The phone number of ${name} is not found`) 
+          result.innerText = `Contact not found`;
         }
-        
+    }
     </script>
 </body>
 </html>
